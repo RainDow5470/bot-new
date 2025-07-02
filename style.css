@@ -40,6 +40,13 @@ body {
   padding-right: 40px; /* Здесь вы можете регулировать значение отступа */
 }
 
+/* Медиазапрос для мобильных устройств */
+@media screen and (max-width: 768px) {
+  #screen2 .container {
+    padding-right: 20px; /* Меньший отступ на мобильных устройствах */
+  }
+}
+
 h1, h2 {
   text-align: center;
   font-weight: 600;
