@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'NeutralFace';
+  src: url('NeutralFace-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('Manrope.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'NeutralFace', sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Добавлен отступ справа для экрана 2 */
+#screen2 .container {
+  padding-right: 40px; /* Здесь вы можете регулировать значение отступа */
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Применяем Manrope ко всем элементам формы на экране 2 */
+#screen2 label,
+#screen2 input,
+#screen2 textarea,
+#screen2 select {
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Кнопка оставляется в NeutralFace */
+button {
+  background-color: #ff007a;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'NeutralFace', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+
+button:hover {
+  background-color: #e6006b;
+}
+
+.hidden {
+  display: none;
+}
+
+.page2 {
+  background: url('background2.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page3 {
+  background: url('background3.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Отключаем NeutralFace и задаём системный шрифт для всего экрана 3 */
+#screen3, 
+#screen3 * {
+  font-family: Arial, sans-serif !important;
+  font-weight: normal;
+}
+
+/* Опускаем блок на экране 3 ниже */
+#screen3 .container {
+  margin-top: 600px; /* Можешь увеличить до 150px, 200px и т.д. при необходимости */
+}
+
+/* Убираем жирный шрифт с экрана 3 */
+#screen3, 
+#screen3 * {
+  font-family: Arial, sans-serif !important;
+  font-weight: normal !important;
+}
+
+/* Опускаем блок ниже и уменьшаем его ширину на экране 3 */
+#screen3 .container {
+  margin-top: 600px;
+  max-width: 300px; /* Уменьшенный размер блока */
+  padding: 20px; /* Чуть меньше, чтобы текст не упирался в края */
+}
+
+/* Меняем шрифт на обычный и убираем жирность */
+#screen3,
+#screen3 * {
+  font-family: Arial, sans-serif !important;
+  font-weight: normal !important;
+}

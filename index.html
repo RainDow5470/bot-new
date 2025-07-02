@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="style.css" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arlette WebApp</title>
+
+  <style>
+    @font-face {
+      font-family: 'NeutralFace';
+      src: url('NeutralFace-Bold.otf') format('opentype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Druzhok';
+      src: url('Druzhok.otf') format('opentype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'NeutralFace', sans-serif;
+      background-image: url('background1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .top-title {
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Druzhok', sans-serif;
+      font-weight: bold;
+      white-space: pre-line;
+      line-height: 1.2;
+      color: white;
+      letter-spacing: 3px;
+      margin-top: 90px; /* Сдвигаем заголовок выше */
+      margin-bottom: 440px;
+    }
+
+    .btn, input, textarea {
+      width: calc(100% - 4px);
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: #ff0000;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 50px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .btn:hover {
+      background-color: #e6006b;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 24px;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      color: #fff;
+      text-align: left;
+    }
+
+    h2 {
+      color: #fff;
+      text-align: center;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <!-- Экран 1 без контейнера -->
+  <div id="screen1">
+    <div class="top-title">ARLETTE<br>MANAGEMENT</div>
+    <button class="btn" onclick="showScreen('screen2')">Хочу на кастинг</button>
+  </div>
+
+  <!-- Экран 2 с формой и черной панелью -->
+  <div id="screen2" class="hidden">
+    <div class="container">
+      <form id="anketaForm">
+        <label>Имя и фамилия*:<br><input name="full_name" required></label>
+        <label>Возраст*:<br><input name="age" required></label>
+        <label>Телефон*:<br><input name="phone" required></label>
+        <label>Telegram*:<br><input name="telegram" required></label>
+        <label>Instagram*:<br><input name="instagram" required></label>
+        <label>О себе*:<br><textarea name="about" required></textarea></label>
+        <label>Рост (см)*:<br><input name="height" required></label>
+        <label>Грудь (см):<br><input name="bust"></label>
+        <label>Талия (см):<br><input name="waist"></label>
+        <label>Бедра (см):<br><input name="hips"></label>
+        <label>Город*:<br><input name="city" required></label>
+        <button type="submit" class="btn">Отправить анкету</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Экран 3 с сообщением -->
+  <div id="screen3" class="hidden">
+    <div class="container">
+      <h2>Улыбнись! Мы скоро свяжемся с тобой :)</h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
