@@ -129,26 +129,17 @@ button:hover {
   font-weight: normal !important;
 }
 
-/* Ограничиваем высоту первой страницы, чтобы всё влезало */
+/* Устанавливаем фиксированную ширину контейнера на первом экране */
 #screen1 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  max-height: 100vh;
-  overflow: hidden;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
 }
-
-#screen1 .container {
-  max-width: 400px;
-  width: 100%;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
 
 
