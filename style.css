@@ -129,17 +129,4 @@ button:hover {
   font-weight: normal !important;
 }
 
-/* Устанавливаем фиксированную ширину контейнера на первом экране */
-#screen1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
 
