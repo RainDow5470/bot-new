@@ -129,13 +129,16 @@ button:hover {
   font-weight: normal !important;
 }
 
-/* Поднимаем кнопку на первом экране */
+/* Устанавливаем фиксированную ширину контейнера на первом экране */
 #screen1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-bottom: 100px; /* Можешь регулировать высоту */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
