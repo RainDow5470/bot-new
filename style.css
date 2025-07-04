@@ -128,3 +128,14 @@ button:hover {
   font-family: Arial, sans-serif !important;
   font-weight: normal !important;
 }
+
+/* Поднимаем кнопку на первом экране */
+#screen1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-bottom: 100px; /* Можешь регулировать высоту */
+}
+
