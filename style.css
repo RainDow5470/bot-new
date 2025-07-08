@@ -35,9 +35,8 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
-/* Добавлен отступ справа для экрана 2 */
 #screen2 .container {
-  padding-right: 40px; /* Здесь вы можете регулировать значение отступа */
+  padding-right: 40px;
 }
 
 h1, h2 {
@@ -62,7 +61,6 @@ input, select, textarea {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Кнопка оставляется в NeutralFace */
 button {
   background-color: #ff007a;
   color: white;
@@ -86,59 +84,24 @@ button:hover {
   display: none;
 }
 
-.page2 {
-  background: url('background2.png') no-repeat center center fixed;
-  background-size: cover;
-}
-
-.page3 {
-  background: url('background3.png') no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* Отключаем NeutralFace и задаём системный шрифт для всего экрана 3 */
-#screen3, 
-#screen3 * {
-  font-family: Arial, sans-serif !important;
-  font-weight: normal;
-}
-
-/* Опускаем блок на экране 3 ниже */
-#screen3 .container {
-  margin-top: 600px; /* Можешь увеличить до 150px, 200px и т.д. при необходимости */
-}
-
-/* Убираем жирный шрифт с экрана 3 */
-#screen3, 
-#screen3 * {
-  font-family: Arial, sans-serif !important;
-  font-weight: normal !important;
-}
-
-/* Опускаем блок ниже и уменьшаем его ширину на экране 3 */
-#screen3 .container {
-  margin-top: 600px;
-  max-width: 300px; /* Уменьшенный размер блока */
-  padding: 20px; /* Чуть меньше, чтобы текст не упирался в края */
-}
-
-/* Меняем шрифт на обычный и убираем жирность */
 #screen3,
 #screen3 * {
   font-family: Arial, sans-serif !important;
   font-weight: normal !important;
 }
 
+#screen3 .container {
+  margin-top: 200px;
+  max-width: 300px;
+  padding: 20px;
+}
+
 @media (min-width: 768px) {
-  /* Только на десктопе уменьшаем отступ вниз у заголовка */
   .top-title {
     margin-bottom: 200px !important;
   }
 
-  /* И дополнительно двигаем кнопку вверх, если нужно */
   #screen1 .btn {
     margin-top: 20px !important;
   }
 }
-
-

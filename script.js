@@ -32,15 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 👤 <b>Имя и фамилия:</b> ${formData.get('full_name')}
 🎂 <b>Возраст:</b> ${formData.get('age')}
+📏 <b>Рост:</b> ${formData.get('height')} см
 📞 <b>Телефон:</b> ${formData.get('phone')}
 💬 <b>Telegram:</b> ${formData.get('telegram')}
 📸 <b>Instagram:</b> ${formData.get('instagram')}
 🏙 <b>Город:</b> ${formData.get('city')}
 
-📏 <b>Рост:</b> ${formData.get('height')} см
-👙 <b>Грудь:</b> ${formData.get('bust')} см
-👗 <b>Талия:</b> ${formData.get('waist')} см
-🍑 <b>Бедра:</b> ${formData.get('hips')} см
 
 🧠 <b>О себе:</b>
 ${formData.get('about')}
