@@ -20,11 +20,9 @@ body {
   background-repeat: no-repeat;
   color: white;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: 0;
 }
+
 
 .container {
   background: rgba(0, 0, 0, 0.6);
@@ -150,5 +148,15 @@ button:hover {
   margin-bottom: 40px;
   font-size: 36px;
   line-height: 1.2;
+}
+
+#screen1 {
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
