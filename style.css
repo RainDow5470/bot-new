@@ -20,9 +20,11 @@ body {
   background-repeat: no-repeat;
   color: white;
   min-height: 100vh;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-
 
 .container {
   background: rgba(0, 0, 0, 0.6);
@@ -127,36 +129,15 @@ button:hover {
   font-weight: normal !important;
 }
 
-/* Устраняем масштабирование и сохраняем компактность экрана 1 */
-#screen1 {
-  width: 100%;
-  max-width: 430px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-}
+@media (min-width: 768px) {
+  /* Только на десктопе уменьшаем отступ вниз у заголовка */
+  .top-title {
+    margin-bottom: 200px !important;
+  }
 
-/* Убираем слишком большой отступ у заголовка */
-.top-title {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  font-size: 36px;
-  line-height: 1.2;
-}
-
-#screen1 {
-  min-height: 100vh;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* И дополнительно двигаем кнопку вверх, если нужно */
+  #screen1 .btn {
+    margin-top: 20px !important;
+  }
 }
 
