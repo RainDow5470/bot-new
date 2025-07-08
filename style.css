@@ -129,4 +129,26 @@ button:hover {
   font-weight: normal !important;
 }
 
+/* Устраняем масштабирование и сохраняем компактность экрана 1 */
+#screen1 {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Убираем слишком большой отступ у заголовка */
+.top-title {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 36px;
+  line-height: 1.2;
+}
 
