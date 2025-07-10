@@ -11,11 +11,11 @@ function showScreen(screenId) {
 
   // Меняем фон в зависимости от экрана
   if (screenId === "screen1") {
-    document.body.style.backgroundImage = "url('background1.png')";
+    document.body.style.backgroundImage = "url('background1.webp')";
   } else if (screenId === "screen2") {
-    document.body.style.backgroundImage = "url('background2.png')";
+    document.body.style.backgroundImage = "url('background2.webp')";
   } else if (screenId === "screen3") {
-    document.body.style.backgroundImage = "url('background3.png')";
+    document.body.style.backgroundImage = "url('background3.webp')";
   }
 }
 
