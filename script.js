@@ -44,7 +44,7 @@ ${formData.get('about')}
 `;
 
     // Отправка анкеты админу
-    fetch('https://api.telegram.org/bot7688922353:AAE6VaYQADYbGLbqb1zm55kgYKUIuLrTr4Q/sendMessage', {
+    fetch('https://api.telegram.org/bot7688922353:AAHVCgR0bV8OfSCZiKS32QFVELCJhgkX128/sendMessage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
