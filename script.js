@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const formData = new FormData(form);
+
     const data = {
       full_name: formData.get('full_name'),
       age: formData.get('age'),
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       city: formData.get('city')
     };
 
-    // Отправляем данные через Telegram WebApp API
+    // Отправка через Telegram WebApp API
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.sendData(JSON.stringify(data));
       showScreen('screen3');
@@ -26,10 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Функция переключения экранов
+// Переключение экранов
 function showScreen(screenId) {
-  document.getElementById('screen1').classList.add('hidden');
-  document.getElementById('screen2').classList.add('hidden');
-  document.getElementById('screen3').classList.add('hidden');
-  document.getElementById(screenId).classList.remove('hidden');
+  const screens = ['screen1', 'screen2', 'screen3'];
+  screens.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('hidden');
+    }
+  });
+
+  const target = document.getElementById(screenId);
+  if (target) {
+    target.classList.remove('hidden');
+  }
 }
