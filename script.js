@@ -1,24 +1,3 @@
-// script.js
-
-function showScreen(screenId) {
-  // Скрываем только нужные экраны
-  document.querySelectorAll('#screen1, #screen2, #screen3').forEach(el => {
-    el.classList.add('hidden');
-  });
-
-  // Показываем нужный экран
-  document.getElementById(screenId).classList.remove('hidden');
-
-  // Меняем фон в зависимости от экрана
-  if (screenId === "screen1") {
-    document.body.style.backgroundImage = "url('background1.png')";
-  } else if (screenId === "screen2") {
-    document.body.style.backgroundImage = "url('background2.png')";
-  } else if (screenId === "screen3") {
-    document.body.style.backgroundImage = "url('background3.png')";
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('anketaForm');
 
@@ -27,47 +6,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formData = new FormData(form);
 
-    // Формируем красиво оформленную строку с эмоджи и HTML
-    const text = `
-📝 <b>Новая анкета!</b>
+    const data = {
+      full_name: formData.get('full_name'),
+      age: formData.get('age'),
+      height: formData.get('height'),
+      phone: formData.get('phone'),
+      telegram: formData.get('telegram'),
+      instagram: formData.get('instagram'),
+      about: formData.get('about'),
+      city: formData.get('city')
+    };
 
-👤 <b>Имя и фамилия:</b> ${formData.get('full_name')}
-🎂 <b>Возраст:</b> ${formData.get('age')}
-📞 <b>Телефон:</b> ${formData.get('phone')}
-💬 <b>Telegram:</b> ${formData.get('telegram')}
-📸 <b>Instagram:</b> ${formData.get('instagram')}
-🏙 <b>Город:</b> ${formData.get('city')}
+    const token = "7688922353:AAGp_223_CC4rsDG4VdHLc1zYW6wx_hRvBU";
+    const chat_id = "676271308";
 
-📏 <b>Рост:</b> ${formData.get('height')} см
-👙 <b>Грудь:</b> ${formData.get('bust')} см
-👗 <b>Талия:</b> ${formData.get('waist')} см
-🍑 <b>Бедра:</b> ${formData.get('hips')} см
+    const text =
+      "📥 Новая анкета:\n\n" +
+      `👤 Имя и фамилия: ${data.full_name}\n` +
+      `🎂 Возраст: ${data.age}\n` +
+      `📏 Рост: ${data.height} см\n` +
+      `📞 Телефон: ${data.phone}\n` +
+      `💬 Telegram: ${data.telegram}\n` +
+      `📸 Instagram: ${data.instagram}\n` +
+      `📝 О себе: ${data.about}\n` +
+      `🌆 Город: ${data.city}`;
 
-🧠 <b>О себе:</b>
-${formData.get('about')}
-`;
-
-    // Отправка анкеты админу
-    fetch('https://api.telegram.org/bot7688922353:AAE6VaYQADYbGLbqb1zm55kgYKUIuLrTr4Q/sendMessage', {
-      method: 'POST',
+    // ❗ Telegram API напрямую не будет работать из браузера (CORS)
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        chat_id: 676271308,
-        text: text,
-        parse_mode: 'HTML'
+        chat_id: chat_id,
+        text: text
       })
     })
-    .then(res => res.json())
-    .then(data => {
-      if (data.ok) {
+    .then(response => {
+      if (response.ok) {
+        alert("Анкета отправлена успешно!");
         form.reset();
-        showScreen('screen3');
       } else {
-        alert('Ошибка при отправке: ' + data.description);
+        alert("Ошибка отправки: Unauthorized (нельзя напрямую из браузера)");
       }
     })
-    .catch(err => alert('Ошибка подключения: ' + err));
+    .catch(error => {
+      alert("Сетевая ошибка. Скорее всего, CORS запрет.");
+      console.error(error);
+    });
   });
 });
