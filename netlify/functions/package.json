@@ -1,7 +1,7 @@
 {
-  "name": "netlify-functions",
+  "name": "functions",
   "version": "1.0.0",
   "dependencies": {
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.9"
   }
 }
