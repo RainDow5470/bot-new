@@ -27,20 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formData = new FormData(form);
 
-    const text = `
-📝 <b>Новая анкета!</b>
-
-👤 <b>Имя и фамилия:</b> ${formData.get('full_name')}
-🎂 <b>Возраст:</b> ${formData.get('age')}
-📏 <b>Рост:</b> ${formData.get('height')} см
-📞 <b>Телефон:</b> ${formData.get('phone')}
-💬 <b>Telegram:</b> ${formData.get('telegram')}
-📸 <b>Instagram:</b> ${formData.get('instagram')}
-🏙 <b>Город:</b> ${formData.get('city')}
-
-🧠 <b>О себе:</b>
-${formData.get('about')}
-`;
+    const payload = {
+      full_name: formData.get('full_name'),
+      age: formData.get('age'),
+      height: formData.get('height'),
+      phone: formData.get('phone'),
+      telegram: formData.get('telegram'),
+      instagram: formData.get('instagram'),
+      city: formData.get('city'),
+      about: formData.get('about'),
+    };
 
     // Отправка анкеты админу через Netlify Function
     fetch('/.netlify/functions/send-form', {
@@ -48,7 +44,7 @@ ${formData.get('about')}
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ text })
+      body: JSON.stringify(payload)
     })
     .then(res => res.json())
     .then(data => {
@@ -56,7 +52,7 @@ ${formData.get('about')}
         form.reset();
         showScreen('screen3');
       } else {
-        alert('Ошибка при отправке: ' + data.description);
+        alert('Ошибка при отправке: ' + (data.description || 'Неизвестная ошибка'));
       }
     })
     .catch(err => alert('Ошибка подключения: ' + err));
