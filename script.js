@@ -47,16 +47,14 @@ ${formData.get('about')}
 `;
 
     // Отправка анкеты админу
-    fetch('https://api.telegram.org/bot7688922353:AAGp_223_CC4rsDG4VdHLc1zYW6wx_hRvBU/sendMessage', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        chat_id: 676271308,
-        text: text,
-        parse_mode: 'HTML'
-      })
+   fetch('/.netlify/functions/send-form', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ text })
+})
+
     })
     .then(res => res.json())
     .then(data => {
