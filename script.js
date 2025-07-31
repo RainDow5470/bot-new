@@ -11,13 +11,10 @@ function showScreen(screenId) {
 
   // Меняем фон в зависимости от экрана
   if (screenId === "screen1") {
-    document.body.style.backgroundImage = "url('background1.png')";
     document.body.style.backgroundImage = "url('background1.webp')";
   } else if (screenId === "screen2") {
-    document.body.style.backgroundImage = "url('background2.png')";
     document.body.style.backgroundImage = "url('background2.webp')";
   } else if (screenId === "screen3") {
-    document.body.style.backgroundImage = "url('background3.png')";
     document.body.style.backgroundImage = "url('background3.webp')";
   }
 }
@@ -41,20 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 📸 <b>Instagram:</b> ${formData.get('instagram')}
 🏙 <b>Город:</b> ${formData.get('city')}
 
-
 🧠 <b>О себе:</b>
 ${formData.get('about')}
 `;
 
-    // Отправка анкеты админу
-   fetch('/.netlify/functions/send-form', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ text })
-})
-
+    // Отправка анкеты админу через Netlify Function
+    fetch('/.netlify/functions/send-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ text })
     })
     .then(res => res.json())
     .then(data => {
